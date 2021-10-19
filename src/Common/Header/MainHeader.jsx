@@ -32,18 +32,17 @@ const MainHeader = (props) => {
         alert("Hello!");
     }
 
+    /*function to open a sidebar */
     const setLoadingnewside = () => {
-        try {
-            setSidebar(!Sidebar);
-            if (Sidebar) {
-                document.getElementById("mySidenav").style.width = "250px";
-            } else {
-                document.getElementById("mySidenav").style.width = "0px";
-            }
-        } catch (error) {
-            console.log(error);
-        }
+        document.getElementById("mySidenav").style.width = "250px";
+        setSidebar(true)
     };
+
+    /*function to close a sidebar */
+    const Closesidebar = () => {
+        document.getElementById("mySidenav").style.width = "0px";
+        setSidebar(false)
+    }
 
     return (
         <div>
@@ -79,7 +78,7 @@ const MainHeader = (props) => {
                         }>Login</div>
                         <span
                             className="logout_Pointer_cursor mobile_Burger_Menu mr-3 text-right mt-2"
-                            onClick={setLoadingnewside}
+                            onClick={!Sidebar ? setLoadingnewside : Closesidebar}
                         >
                             <i class="fa fa-bars"></i>
                         </span>
@@ -158,7 +157,7 @@ const MainHeader = (props) => {
                             Business Assets For Sale
                         </span>
 
-                         {/* Invester*/}
+                        {/* Invester*/}
                         <span className="logout_Pointer_cursor" onClick={() => props.history.push("/individual-invester")}>
                             Individual Investers
                         </span>

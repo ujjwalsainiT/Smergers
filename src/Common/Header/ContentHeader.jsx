@@ -32,18 +32,17 @@ const ContentHeader = (props) => {
         alert("Hello!");
     }
 
+    /*function to open a sidebar */
     const setLoadingnewside = () => {
-        try {
-            setSidebar(!Sidebar);
-            if (Sidebar) {
-                document.getElementById("mySidenav").style.width = "250px";
-            } else {
-                document.getElementById("mySidenav").style.width = "0px";
-            }
-        } catch (error) {
-            console.log(error);
-        }
+        document.getElementById("mySidenav").style.width = "250px";
+        setSidebar(true)
     };
+
+    /*function to close a sidebar */
+    const Closesidebar = () => {
+        document.getElementById("mySidenav").style.width = "0px";
+        setSidebar(false)
+    }
 
     return (
         <div>
@@ -81,7 +80,7 @@ const ContentHeader = (props) => {
                         {/* bars foor mobile View */}
                         <span
                             className="logout_Pointer_cursor mobile_Burger_Menu mr-3 text-right mt-2"
-                            onClick={setLoadingnewside}
+                            onClick={!Sidebar ? setLoadingnewside : Closesidebar}
                         >
                             <i class="fa fa-bars"></i>
                         </span>
