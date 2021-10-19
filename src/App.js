@@ -1,6 +1,12 @@
-import { Switch, Route,Redirect } from "react-router-dom"
 import React from 'react';
+
+//route to the various paths
+import { Switch, Route,Redirect } from "react-router-dom"
+
+//used css
 import './App.css';
+
+//components
 import Home from "./Components/Home/Home.jsx";
 import PrivacyPolicy from "./Common/PrivacyPolicy/PrivacyPolicy";
 import Terms from "./Common/PrivacyPolicy/Terms";
@@ -33,9 +39,13 @@ import PrivateEquity from "./Components/Investers/PrivateEquity";
 import FamilyOffice from "./Components/Investers/FamilyOffice";
 import BusinessLender from "./Components/Investers/BusinessLender";
 
+//scrooll to top
+import ScrollToTop from "react-scroll-to-top";
+
 function App() {
   return (
     <>
+      <ScrollToTop smooth color="#6f00ff" />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
