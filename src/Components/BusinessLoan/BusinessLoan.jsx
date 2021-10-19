@@ -32,19 +32,14 @@ function BusinessLoan(props) {
     { heading: "Industrial Machinery Company Investment", location: "Meerut" },
     ]
 
+     const numEachPage = 12;
     const handleChange = (value) => {
         window.scrollTo(0, 0);
-        if (value <= 1) {
-            setminValue(0)
-            setmaxValue(12)
 
-        } else {
-            setminValue(maxValue)
-            setmaxValue(value * 12)
+        setminValue((value - 1) * numEachPage)
+        setmaxValue(value * numEachPage)
 
-        }
     };
-
     const [searchtitle, setsearchtitle] = useState("");
     const [searchlocation, setsearchlocation] = useState("");
 
@@ -147,7 +142,7 @@ function BusinessLoan(props) {
                 <div className="mt-2 mb-2 text-center">
                     <Pagination
                         defaultCurrent={1}
-                        defaultPageSize={10}
+                        defaultPageSize={numEachPage}
                         onChange={handleChange}
                         total={500}
                     />
